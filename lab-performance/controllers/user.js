@@ -18,9 +18,15 @@ router.get('/create', (req, res)=>{
 router.post('/create', (req, res)=>{
 	
 	var user = {
+		
 		username: req.body.username,
+		email: req.body.email,
 		password: req.body.password,
-		type: req.body.type
+		
+		companyname: req.body.companyname,
+		contactno: req.body.contactno,
+		type: 1
+
 	};
 	
 	userModel.insert(user,function(status){
@@ -33,17 +39,43 @@ router.post('/create', (req, res)=>{
 });
 
 router.get('/edit/:id', (req, res)=>{
-
+	
+	userModel.getById(req.params.id,function(result){
+			
 	var user = {
-		username: 'test',
-		password: 'test',
-		email: 'alamin@aiub.edu'
+		
+		username: req.body.username,
+		username: req.body.email,
+		password: req.body.password,
+		type: 1,
+		companyname: req.body.companyname,
+		contactno: req.body.contactno
+
 	};
-	res.render('user/edit', user);
+			res.render('user/edit', user);
+	});
 });
 
 router.post('/edit/:id', (req, res)=>{
-	res.redirect('/home/userlist');
+
+	var user = {
+		
+		username: req.body.username,
+		email: req.body.email,
+		password: req.body.password,
+		type: 1,
+		companyname: req.body.companyname,
+		contactno: req.body.contactno
+
+	};
+	userModel.update(user,function(status){
+		if(status){
+			res.redirect('/Admin_home/userlist');
+		}
+		else{
+			res.render('user/edit', user);
+		}
+	});
 });
 
 router.get('/delete/:id', (req, res)=>{
@@ -56,4 +88,3 @@ router.post('/delete/:id', (req, res)=>{
 });
 
 module.exports = router;
-

@@ -1,3 +1,4 @@
+  
 const db = require('./db');
 
 module.exports= {
@@ -19,8 +20,8 @@ module.exports= {
 		});
 	},
 	insert: function(user, callback){
-		var sql = "INSERT INTO users(username, password, type) VALUES ('"+user.username+"','"+user.password+"','"+user.type+"')";
-		//console.log(sql);
+		var sql = "INSERT INTO users(username,email,password,type,companyname,contactno) VALUES ('"+user.username+"','"+user.email+"','"+user.password+"','"+user.type+"','"+user.companyname+"','"+user.contactno+"')";
+		
 		db.execute(sql,function(status){
 			callback(status);
 		});

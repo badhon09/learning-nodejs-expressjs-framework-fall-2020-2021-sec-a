@@ -13,7 +13,7 @@
 	<table border="1">
 		<tr>
 			<td>ID</td>
-			<td>Name</td>
+			
 			<td>User Name</td>
 			<td>Company Name</td>
 			<td>Contact No</td>
@@ -29,21 +29,20 @@
 				<td><%= users[i][2] %></td>
 				<td><%= users[i][3] %></td>
 			</tr>
-
 		<% } %> -->
 
 		<% 
 			users.forEach( function(std){ %>
 			<tr>
 				<td><%= std.id %></td>
-				<td><%= std.name %></td>
+				
 				<td><%= std.username %></td>
 				<td><%= std.companyname %></td>
 				<td><%= std.contactno %></td>
 				<% if(std.type == 0){%>
 					<td>Admin</td>
 				<%}
-				else(std.type == 1){%>
+				else{%>
 					<td>Employee</td>
 				<%}%>
 				<td>
@@ -51,7 +50,6 @@
 					<a href="/user/delete/<%= std.id %>">Delete</a>
 				</td>
 			</tr>
-
 		<%
 			}); 
 		%>
