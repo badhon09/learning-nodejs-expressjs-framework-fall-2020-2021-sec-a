@@ -31,8 +31,16 @@ module.exports= {
 			callback(status);
 		});
 	},
-	update:function(user, callback){
-
+	update: function(user, callback){
+		console.log(user);
+		var sql = "update users set username = '"+user.username+"',email = '"+user.email+"', password = '"+user.password+"',companyname = '"+user.companyname+"',contactno = '"+user.contactno+"' where id = '"+user.id+"'";
+		db.execute(sql, function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
 	},
 	delete: function(id, callback){
 		var sql = "DELETE FROM users WHERE id = '"+id+"'";

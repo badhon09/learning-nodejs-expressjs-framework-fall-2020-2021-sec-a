@@ -41,6 +41,21 @@ router.post('/create', (req, res)=>{
 router.get('/edit/:id', (req, res)=>{
 	
 	userModel.getById(req.params.id,function(result){
+			var user = {
+				email: result.email,
+				username: result.username,
+				password: result.password,
+				companyname: result.companyname,
+				contactno: result.contactno,
+				type: 1
+			};
+			res.render('user/edit', user);
+	});
+});
+
+router.get('/edit/:id', (req, res)=>{
+	
+	userModel.getById(req.params.id,function(result){
 			
 	var user = {
 		

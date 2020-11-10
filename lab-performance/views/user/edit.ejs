@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create User</title>
+	<title>Edit User</title>
 </head>
 <body>
 	<form method="post">
 		<fieldset>
-			<legend>Create New User</legend>
+			<legend>Edit User</legend>
 			<table>
-				
-				<tr>
-					<td>User Name</td>
-					<td><input type="text" name="username"></td>
-				</tr>
 				<tr>
 					<td>Email</td>
-					<td><input type="email" name="email"></td>
+					<td><input type="text" name="name" value="<%= email%>"></td>
+				</tr>
+				<tr>
+					<td>User Name</td>
+					<td><input type="text" name="username" value="<%= username%>"></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password"></td>
+					<td><input type="password" name="password" value="<%= password%>"></td>
 				</tr>
 				<tr>
 					<td>Company Name</td>
-					<td><input type="text" name="companyname"></td>
+					<td><input type="text" name="companyname" value="<%= companyname%>"></td>
 				</tr>
 				<tr>
 					<td>Contact No</td>
-					<td><input type="text" name="contactno"></td>
+					<td><input type="text" name="contactno" value="<%= contactno%>"></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -36,6 +35,5 @@
 			</table>
 		</fieldset>
 	</form>
-	<a href="/home">Back</a>
 </body>
 </html>
