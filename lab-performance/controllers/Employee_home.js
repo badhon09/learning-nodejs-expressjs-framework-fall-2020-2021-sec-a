@@ -17,7 +17,7 @@ router.get('/', (req, res)=>{
 router.get('/userlist', (req, res)=>{
 
 	userModel.getAll(function(results){
-		res.render('Employee_home/userlist', {users: results});
+		res.render('Employee_home/userlist', {jobs: results});
 	});
 
 })
